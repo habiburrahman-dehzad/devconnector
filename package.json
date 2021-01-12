@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "yarn --cwd ./client/ start",
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd ./client/ install && yarn --cwd ./client/ build"
   },
   "author": "Habiburrahman Dehzad",
   "license": "MIT",
